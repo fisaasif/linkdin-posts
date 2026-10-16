@@ -1,19 +1,6 @@
-/**
- * LinkedIn posts shown on the site via LinkedIn's official embeds.
- *
- * To add a post: on LinkedIn click "…" on the post → "Embed this post", copy the
- * iframe code, and paste either the whole `src` URL or just the `urn:li:…` part below.
- * Newest first. Only public posts can be embedded.
- */
-export const linkedinPosts: string[] = [
+[
   'urn:li:ugcPost:7516416048376766464',
   'urn:li:ugcPost:7515158958802817024',
-];
+]
 
-const URN = /urn:li:(?:ugcPost|share|activity):\d+/;
 
-/** Accepts a bare URN or a full embed/iframe URL and returns the embed src. */
-export function embedSrc(entry: string): string | null {
-  const urn = entry.match(URN)?.[0];
-  return urn ? `https://www.linkedin.com/embed/feed/update/${urn}?collapsed=1` : null;
-}
